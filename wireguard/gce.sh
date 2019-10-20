@@ -86,6 +86,7 @@ echo "[Peer]
 PublicKey = $PUBLIC_KEY
 Endpoint = $ENDPOINT
 AllowedIPs = 0.0.0.0/0
+MTU = 1360
 PersistentKeepalive = 16" >> "$HOME/$WG_CONFIG_NAME-client.conf"
 
 chmod 600 -R /etc/wireguard/
