@@ -45,7 +45,7 @@ PUBLIC_IP=$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1
 
 ENDPOINT="$PUBLIC_IP:$WG_LOCAL_PORT"
 
-add-apt-repository -y ppa:wireguard/wireguard
+DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:wireguard/wireguard -y
 apt-get update
 apt-get install -y "linux-headers-$(uname -r)" wireguard iptables qrencode
 
