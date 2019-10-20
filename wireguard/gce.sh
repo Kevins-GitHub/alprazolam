@@ -45,7 +45,7 @@ PUBLIC_IP=$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1
 
 ENDPOINT="$PUBLIC_IP:$WG_LOCAL_PORT"
 
-add-apt-repository ppa:wireguard/wireguard
+add-apt-repository -y ppa:wireguard/wireguard
 apt-get update
 apt-get install -y "linux-headers-$(uname -r)" wireguard iptables qrencode
 
@@ -98,3 +98,6 @@ sysctl --system
 
 systemctl start "wg-quick@$WG_CONFIG_NAME"
 systemctl enable "wg-quick@$WG_CONFIG_NAME"
+
+echo "here is the QR-code for you client (e.g. iPhone)"
+qrencode -t ansiutf8 < "$HOME/$WG_CONFIG_NAME-client.conf"
