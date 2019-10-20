@@ -73,7 +73,7 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACC
 # Add the client as a peer to the server
 echo "[Peer]
 PublicKey = $CLIENT_PUBLIC_KEY
-AllowedIPs = $CLIENT_IPV4_ADDR" >> "/etc/wireguard/$WG_CONFIG_NAME.conf"
+AllowedIPs = 192.71.0.0/24" >> "/etc/wireguard/$WG_CONFIG_NAME.conf"
 
 # Create client file with interface
 echo "[Interface]
